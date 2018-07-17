@@ -29,3 +29,23 @@
     
       </div>
 </div><!-- parent -->
+
+
+########################
+Calculating pecificity
+########################
+
+ID selector ('#whatever') = 100
+Class selector ('.whatever') = 10
+HTML selector ('whatever') = 1
+
+p = 1
+div p = 2
+.tree = 10
+div p.tree = 12
+#something = 100
+body #something .alternative p = 112
+(regardless of order)
+source: http://www.htmldog.com/guides/css/intermediate/specificity/
+
+
