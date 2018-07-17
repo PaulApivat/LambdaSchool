@@ -1,0 +1,31 @@
+<div class="parent">                                              ---> .parent {}
+    <div class="child">                                           ---> .parent .child {}
+        <div class="grandchild">                                  ---> .parent .grandchild {}
+    
+              <div class="greatgrandchild">                       ---> .parent .greatgrandchild {}
+              </div>
+
+              <div class="greatgrandchild greatgrandchild2">      ---> .parent .greatgrandchild.greatgrandchild2 {}
+              </div><!-- grandchild2 -->
+              
+        </div><!-- grandchild -->    
+    </div><!-- child -->
+  
+    <div class="child child2">                                    ---> .child.child2 {}
+        <div class="grandchild">                                  ---> .child.child2 .grandchild {}
+      
+              <div class="greatgrandchild">                       ---> .child.child2 .greatgrandchild {}
+              </div>
+              
+        </div>
+    
+        <div class="grandchild grandchild2">                      ---> .child.child2 .grandchild.grandchild2 {}
+      
+      
+              <div class="greatgrandchild">                       ---> .child.child2 .grandchild.grandchild2 .greatgrandchild {}
+              </div>
+      
+        </div><!-- grandchild -->
+    
+      </div>
+</div><!-- parent -->
