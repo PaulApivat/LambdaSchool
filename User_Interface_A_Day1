@@ -38,6 +38,7 @@ Calculating pecificity
 ID selector ('#whatever') = 100
 Class selector ('.whatever') = 10
 HTML selector ('whatever') = 1
+Multiple-Classes (class="one two") = Bottom of the CSS page has more weight
 
 p = 1
 div p = 2
