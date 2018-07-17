@@ -48,4 +48,19 @@ body #something .alternative p = 112
 (regardless of order)
 source: http://www.htmldog.com/guides/css/intermediate/specificity/
 
+##################
+Specificity Weight
+##################
+
+* < elements < classes, psuedo-classes, attributes < IDs < inline styles < !important
+
+* (universal) < elements (p div h1 head) < classes ('.whatever'), psuedo-classes ('p.last-child'), attributes  
+< IDs ('#whatever') < inline styles ('<h1 style="color: red">some text</h1>')
+< !important ('<h1 style="color: red !important">some text</h1>')  
+
+
+
+
+
+
 
