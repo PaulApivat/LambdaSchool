@@ -175,3 +175,177 @@ userActivity.data['online'] = 45
 
 console.log(userActivity);
 
+############## Access Property with Bracket Notation
+// foods object with multiple key:value pairs
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+// function takes any scannedItem as argument
+function checkInventory(scannedItem) {
+  // access value of any key in foods object, set to inventory
+  let inventory = foods[scannedItem];
+  return inventory;
+}
+
+// should return 25
+console.log(checkInventory("apples"));
+
+############### REMOVE Property from Objects with Delete key word
+// foods object with multiple key:value pairs
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+// use delete key word to remove oranges, plums, strawberries from foods object
+delete foods.oranges;
+delete foods.plums;
+delete foods.strawberries;
+
+console.log(foods);
+
+############### Check if an Object has a Property using .hasOwnProperty() method // alternative 'Alan' in users
+// users nested object 
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+//function takes an object argument
+function isEveryoneHere(obj) {
+  // return true if users object has using .hasOwnProperty() method, only returns boolean
+  if (users.hasOwnProperty('Alan' && 'Jeff' && 'Sarah' && 'Ryan')){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isEveryoneHere(users));
+
+
+############### Iterate Through the Keys of an Object with a for...in Statement
+// users object, has nested object
+let users = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+//create a function that loops through users in the users object and return the number of users whose online property is true
+// countOnline takes obj object as argument
+
+function countOnline(obj) {                                      
+  let count = 0;                         // let variable count equal 0                                           
+  for (let user in obj){                 // loops through user in obj (referencing Alan, Jeff, Sarah, Ryan)
+    if (obj[user]['online'] === true){   // double-bracket notation 
+      count++;                           // increase count
+    }
+  }
+  return count;
+}
+
+console.log(countOnline(users));
+
+################ Generate an Array of All Object Keys with Object.keys()
+let users = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function getArrayOfUsers(obj) {
+  // use Object.keys() to retrieve all keys from obj object, set to array
+  let array = Object.keys(obj);
+  return array;
+}
+
+console.log(getArrayOfUsers(users));
+
+################# Modify an Array stored within an Object
+let user = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
+  }
+};
+
+// addFriend function takes a user object and adds the name of the friend argument to the array stored in user.data.friends
+
+function addFriend(userObj, friend) {
+        // retrieve existing user.data.friends array and set to array
+  let array = user.data.friends;
+        // add friend to array using array method .push()
+  array.push(friend);
+        // return that array
+  return array;
+
+
+  // change code above this line
+}
+
+console.log(addFriend(user, 'Pete'));
+
