@@ -1,0 +1,40 @@
+###################################
+Data Structures: JS Built-in Functions
+###################################
+
+########## Add Items to an Array with push() and unshift() - takes unlimited arguments
+
+function mixedNumbers(arr) {
+// use .unshift to add three items to front and .push to add three items to the back
+  arr.unshift('I', 2, 'three');
+  arr.push(7, 'VIII', 9);
+  // change code above this line
+  return arr;
+}
+
+// do not change code below this line
+console.log(mixedNumbers(['IV', 5, 'six']));
+
+########## Remove Items from an Array with pop() and shift() - does NOT take in arguments
+
+function popShift(arr) {
+  let popped = arr.pop(); // change this line
+  let shifted = arr.shift(); // change this line
+  return [shifted, popped];
+}
+
+// do not change code below this line
+console.log(popShift(['challenge', 'is', 'not', 'complete']));
+
+########## Remove Items Using splice() - - returns an array
+
+function sumOfTen(arr) {
+  arr.splice(3,1);                      // at index[3], take 1 items out;
+  arr.splice(4,1);                      // then at index[4], take another 1 item out
+  return arr.reduce((a, b) => a + b);   // change code above this line
+}
+
+// do not change code below this line
+console.log(sumOfTen([2, 5, 1, 5, 2, 1]));
+
+
