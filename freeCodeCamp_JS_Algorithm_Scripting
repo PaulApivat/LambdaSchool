@@ -1,0 +1,32 @@
+######## Reverse String
+function reverseString(str) {
+// turn string into an array of letters
+  let strsplit = str.split("");
+// reverse order of letters in array
+  let strrev = strsplit.reverse();
+//join letters into one string
+  let newstr = strrev.join("");
+  return newstr;
+}
+
+reverseString("hello");
+
+############# A function that multiplies all positive integers less than or equal itself
+// example: 5! = 5 * 4 * 3 * 2 * 1 = 120
+
+function factorialize(num) {
+// set factorial at 1
+let factorial = 1;
+let i = num;    
+// loop through all number less than or equal to num
+// start at num, count down till zero
+for (i = num; i > 0; i--){
+  // all integers multiplying itself
+    factorial = factorial * i;
+  // } 
+}
+return factorial;
+}
+
+
+factorialize(20);
