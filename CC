@@ -1,0 +1,74 @@
+######### Array Methods - Common Elements
+// Write a function called commonElements that has parameters for two arrays. 
+// Return an array of all items that are present in both arrays. 
+
+function commonElements(arr1, arr2) {
+  // declare empty array
+  let first = [];
+  // loop through first array
+  for (i = 0; i < arr1.length; i++){
+  // loop through second array
+    for (j = 0; j < arr2.length; j++) {
+  // if an item in the first and second array are equal
+      if (arr1[i] === arr2[j]) {
+  // add item to empty array
+        first.push(arr1[i]);
+      }
+    }
+  }
+  return first;
+}
+
+// return ['a']
+commonElements(['a', 'b', 'c'], ['x', 'y', 'z', 'a'])
+
+####### Alternative Solution - Array Methods - Common Elements ######
+// v1.0 for loop
+function commonElements(arr1, arr2) {
+  const matches = [];                        //empty array called 'matches'
+  let i, len = arr1.length;                  
+  for (i = 0; i < len; i++) {               //loop through first array
+    if (arr2.includes(arr1[i])) {           // if second array .includes() item in first array
+      if(!matches.includes(arr1[i])) {      // if empty array does not include item from first array
+        matches.push(arr1[i]);              // push item from first array into 'matches' array
+      }
+    }    
+  }
+  return matches;
+}
+
+// v1.1
+// function commonElements(arr1, arr2) {    
+// let unique = new Set(arr1);                 // declare new object Set to store arr1
+// const matches = [];                         // empty array called 'matches'
+// for (let item of unique) {                  // for let loop through item in arr1
+//   if (arr2.includes(item)) {                // if item is in arr2
+//     matches.push(item);                     // push item into empty array 'matches'
+//     }
+//   }
+// return matches;
+// }
+
+// // v1.2 Array method .forEach()
+// function commonElements(arr1, arr2) {       
+//   const matches = [];                         //empty array called 'matches'
+//   arr1.forEach(element => {                   //forEach method loop through arr1
+//     if (arr2.includes(element)) {             // if arr2 includes element
+//       if(!matches.includes(element)) {        // if empty array does not include item from first array, thats included in arr2
+//         matches.push(element);                // push item into empty array 'matches'
+//       }
+//     }
+//   });
+//   return matches;
+// }
+
+// // v2.0
+// function commonElements(arr1, arr2) {
+//   return arr1.filter((element, position) => {
+//     if (arr1.indexOf(element) === position)
+//       return arr2.includes(element);
+//   });
+// }
+
+console.log(commonElements([1, 2, 3, 4, 4, 6], [3, 4, 5, 6])); // <--- [ 3, 4, 6 ]
+
