@@ -1,4 +1,4 @@
-######### Array Methods - Common Elements
+######################################################################### Array Methods - Common Elements
 // Write a function called commonElements that has parameters for two arrays. 
 // Return an array of all items that are present in both arrays. 
 
@@ -71,4 +71,96 @@ function commonElements(arr1, arr2) {
 // }
 
 console.log(commonElements([1, 2, 3, 4, 4, 6], [3, 4, 5, 6])); // <--- [ 3, 4, 6 ]
+
+######################################################################## Reverse Number
+// Write a function called reverseNumber that reverses a number.
+
+function reverseNumber(num) {
+  // convert number to string, using .toString()
+  let numstr = num.toString();
+  // use split method to split up string, store in newnumstr
+  let newnumstr = numstr.split("");
+  // use reverse method on newnumstr, assign to rev
+  let rev = newnumstr.reverse();
+  // use join method on rev, assing to newNum
+  let newNum = rev.join("");
+  // convert from string to number, assign to finNum
+  let finNum = Number(newNum);
+  return finNum;
+}
+
+reverseNumber(12345);
+
+######### Alternative Solution - Reverse Number
+// v1.0
+function reverseNumber (num) {
+  let str = num.toString();
+  let len = str.length;
+  let reversed = '';
+  for (let i = len; i > 0; i--) {
+    reversed += str[i - 1];
+  }
+  let result = Number(reversed);
+  return result;
+}
+
+// // v2.0
+// function reverseNumber (num) {
+//   // console.log(num);
+//   let string = num.toString();
+//   // console.log(string);
+//   // console.log(typeof(string));
+//   let arr = string.split('');
+//   // console.log(arr);
+//   let reverse = arr.reverse();
+//   // console.log(reverse);
+//   let join = reverse.join('');
+//   // console.log(join);
+//   let result = Number(join);
+//   return result;
+// }
+
+// // v3.0 Number()
+// function reverseNumber (num) {
+//   return Number(num
+//     .toString()
+//     .split('')
+//     .reverse()
+//     .join(''));
+// }
+
+// // v4.0 parseInt()
+// function reverseNumber(num) {
+//   return parseInt(num
+//     .toString()
+//     .split('')
+//     .reverse()
+//     .join(''));
+// }
+
+// // v5.0 Arithmetic Operators *=, +=, -=, /= and % (modulo operator)
+// function reverseNumber(num) {
+//   let number = num;
+//   let reversed = 0;
+//   while (number !== 0) {
+//     reversed *= 10;
+//     reversed += number % 10;
+//     number -= number % 10;
+//     number /= 10;
+//     // console.log(`reversed: ${reversed}, number: ${number}`);
+//   }
+//   return reversed;
+// }
+
+// // v5.1
+// function reverseNumber(num) {
+//   const arr = [];
+//   // This takes numbers from right to left on the num variable
+//   while (num > 0) {
+//     arr.push(num % 10);
+//     num = Math.floor(num / 10);
+//   }
+//   return Number(arr.join(''));
+// }
+
 
