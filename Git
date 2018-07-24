@@ -1,0 +1,19 @@
+#################### Quick Start
+#### Forking & Cloning
+
+1. Fork [target project] into your github repository
+2. In Terminal: cd [into target directory]
+3. $ git clone [url of your fork]    //Under "Clone or Download: Clone with HTTPS" [clipboard icon]
+
+######################## Pushing back up to Github
+## Reference: https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+1. $ git init    //# initialize [target directory that contains the project]
+2. $ git add .   //# Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.
+3. $ git commit -m "First commit"
+// # Commits the tracked changes and prepares them to be pushed to a remote repository. 
+// #T o remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
+
+4. $ git remote add origin [-- what you pasted from clipboard: remote repository URL] // # Sets the new remote
+5. $ git remote -v    // # Verifies the new remote URL
+6. $ git push -u origin master  // # Pushes the changes in your local repository up to the remote repository you specified as the origin
