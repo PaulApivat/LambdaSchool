@@ -163,4 +163,16 @@ function reverseNumber (num) {
 //   return Number(arr.join(''));
 // }
 
+// alternative solution (Matthew Meitl) :parseInt
+function reverseNumber(num) {
+  return parseInt(num.toString().split('').reverse().join(''));
+}
+
+// alternative solution (Ryan McLaughlin): parseInt similar
+function reverseNumber(num) {
+ num = num + "";
+ let reverse = num.split("").reverse().join("");
+   return parseInt(reverse); 
+}
+
 
