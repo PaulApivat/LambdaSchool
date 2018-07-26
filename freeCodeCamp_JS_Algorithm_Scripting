@@ -52,3 +52,29 @@ function findLongestWordLength(str) {
 
 //example: return '6'
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
+
+############### Iterate through sub-arrays: Return largest numbers in arrays
+****NOTE: This does NOT pass yet
+
+function largestOfFour(arr) {
+  // set an empty global array
+  let emptyArr = [];
+  // set n 
+  let n = 0;
+  // iterate through the array
+  for (i = 0; i < arr.length; i++) {
+  // iterate through the sub-array
+    for (x = 0; x < arr[i].length; x++) {
+       // compare numbers within the sub-array
+      // if largest, set number to n
+       if (arr[i][x] > n) {
+         n = arr[i][x];
+         emptyArr.push(n);
+       }
+    }
+  }
+  // return global array
+  return emptyArr;
+}
+
+largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]);
