@@ -54,7 +54,7 @@ function findLongestWordLength(str) {
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
 
 ############### Iterate through sub-arrays: Return largest numbers in arrays
-****NOTE: This does NOT pass yet
+***********NOTE: This is NOT the solution; Solution below.
 
 function largestOfFour(arr) {
   // set an empty global array
@@ -78,3 +78,34 @@ function largestOfFour(arr) {
 }
 
 largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]);
+
+
+***********SOLUTION HERE ***********************
+
+function largestOfFour(arr) {
+  //set empty array to results variable to store numbers
+  let results = [];
+  // loop through outer array
+  for (i = 0; i < arr.length; i++) {
+  // set a second variable to hold largest numbers
+  // outer loop means it won't be reassigned until a larger number is found ? This is only looping through outer arrays (i.e., 17, 25, 4, -72) and stores the largest one (25)
+    let largestNumber = arr[i][0];
+  // loop through sub-array 
+    for (sb = 1; sb < arr[i].length; sb++) {
+  // (all numbers in first array is larger than 25?); all numbers in second array (34) bigger, if larger, then set the largestNumber to new value
+      if (arr[i][sb] > largestNumber) {
+        largestNumber = arr[i][sb];
+      }
+    }
+
+    results[i] = largestNumber;
+  }
+
+  return results;
+}
+
+
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+// doesn't run into problem of previous attempt where function stores a largest number, then it remains the largest across other sub-arrays, overriding other arrays.
