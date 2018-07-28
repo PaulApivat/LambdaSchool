@@ -8,22 +8,21 @@ function mixedNumbers(arr) {
 // use .unshift to add three items to front and .push to add three items to the back
   arr.unshift('I', 2, 'three');
   arr.push(7, 'VIII', 9);
-  // change code above this line
+// change code above this line
   return arr;
 }
 
-// do not change code below this line
 console.log(mixedNumbers(['IV', 5, 'six']));
 
 ########## Remove Items from an Array with pop() and shift() - does NOT take in arguments
 
 function popShift(arr) {
-  let popped = arr.pop(); // change this line
-  let shifted = arr.shift(); // change this line
+  let popped = arr.pop(); 
+  let shifted = arr.shift(); 
   return [shifted, popped];
 }
 
-// do not change code below this line
+
 console.log(popShift(['challenge', 'is', 'not', 'complete']));
 
 ########## Remove Items Using splice() - - returns an array
@@ -34,25 +33,24 @@ function sumOfTen(arr) {
   return arr.reduce((a, b) => a + b);   // change code above this line
 }
 
-// do not change code below this line
+
 console.log(sumOfTen([2, 5, 1, 5, 2, 1]));
 
 ########## Remove AND Replace Items using .splice() - - takes in 3 arguments: starting index, # items removed, new items
 
 function htmlColorNames(arr) {
   // change code below this line
-  arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond');
+    arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond');
   // change code above this line
-  return arr;
+    return arr;
 } 
  
-// do not change code below this line
 console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
 
 ########### Extract items from array using .slice - 2 arguments, beginning and end of extraction
 
 function forecast(arr) {
-  // start extraction at index 2 till 4, store in 'newarr'
+// start extraction at index 2 till 4, store in 'newarr'
   let newarr = arr.slice(2,4);
   return newarr;
 }
@@ -65,17 +63,16 @@ console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']
 //return a new array made up of num copies of arr
 
 function copyMachine(arr, num) {
-  let newArr = [];
-  while (num >= 1) {                          //.push copy of arr into newArr;
-    // change code below this line
+    let newArr = [];
+    while (num >= 1) {                          
+ //.push copy of arr into newArr;  
     newArr.push([...arr]);                    //apply .push([...arr]) into newArr, until while loop breaks
-    // change code above this line
     num--;
   }
   return newArr;
 }
 
-// change code here to test different cases:
+//test different cases
 console.log(copyMachine([true, false, true], 2));
 
 ############# Combine Array with Spread Operator
@@ -92,7 +89,7 @@ console.log(spreadOut());
 ############ indexOf()
 // a function, quickCheck, that takes an array and an element as arguments
 // it returns true if the passed element exists on the array, and false if it does not
-// 
+
 
 function quickCheck(arr, elem) {
   if (arr.indexOf(elem) === -1) {
@@ -108,14 +105,13 @@ console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
 ############ Use for-loop to check if nested arrays contain an element
 function filteredArray(arr, elem) {
   let newArr = [];
-  // change code below this line
+// change code below this line
     for (let i = 0; i < arr.length; i++){
-      //check if elem inside nested array using indexOf()
+//check if elem inside nested array using indexOf()
       if (arr[i].indexOf(elem) === -1) {       // -1 if not containining 
         newArr.push(arr[i]);                  //push nested array into newArr
       }
     }
-  // change code above this line
   return newArr;
 }
 
@@ -125,7 +121,7 @@ console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
 ############# Nested Array - 5 levels deep
 
 let myNestedArray = [
-  // change code below this line //top-level
+//top-level
   ['unshift', false, 1, 2, 3, 'complex', 'nested'], //2-levels
   [
     ['deep'],[             //3-levels
@@ -138,24 +134,22 @@ let myNestedArray = [
   ['concat', false, true, 'spread', 'array'],
   ['mutate', 1327.98, 'splice', 'slice', 'push'],
   ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth']
-  // change code above this line
 ];
 
 myNestedArray;
 
 ############# Adding Key-Value Pairs to Objects
 // existing foods object
-let foods = {
-  apples: 25,
-  oranges: 32,
-  plums: 28
+  let foods = {
+    apples: 25,
+    oranges: 32,
+    plums: 28
 };
 
 // add three fruits with corresponding count
 foods['bananas'] = 13;         //alternative   foods.bananas = 13;
 foods['grapes'] = 35;          //alternative   foods.grapes = 35;
 foods['strawberries'] = 27;    //alternative   foods.strawberries = 27;
-// change code above this line
 
 console.log(foods);
 
@@ -237,7 +231,7 @@ let users = {
 
 //function takes an object argument
 function isEveryoneHere(obj) {
-  // return true if users object has using .hasOwnProperty() method, only returns boolean
+// return true if users object has using .hasOwnProperty() method, only returns boolean
   if (users.hasOwnProperty('Alan' && 'Jeff' && 'Sarah' && 'Ryan')){
     return true;
   } else {
@@ -336,15 +330,13 @@ let user = {
 // addFriend function takes a user object and adds the name of the friend argument to the array stored in user.data.friends
 
 function addFriend(userObj, friend) {
-        // retrieve existing user.data.friends array and set to array
-  let array = user.data.friends;
-        // add friend to array using array method .push()
-  array.push(friend);
-        // return that array
-  return array;
+// retrieve existing user.data.friends array and set to array
+    let array = user.data.friends;
+// add friend to array using array method .push()
+    array.push(friend);
+// return that array
+    return array;
 
-
-  // change code above this line
 }
 
 console.log(addFriend(user, 'Pete'));
