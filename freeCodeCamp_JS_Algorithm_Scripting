@@ -109,3 +109,26 @@ function largestOfFour(arr) {
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
 
 // doesn't run into problem of previous attempt where function stores a largest number, then it remains the largest across other sub-arrays, overriding other arrays.
+
+
+
+############### Confirm ending of String using .substr()  *NOT* .endsWith()
+***Explanation***
+// str.substr(start[, length])
+// first argument 'start' is the index of the first character to include in the returned substring.
+// second (optional) argument 'length' is the number of characters to extract.
+
+function confirmEnding(str, target) {
+// use substr method to return part of a string between the start index and a number of characters after it
+// if argument in substr() method is negative, the index counts from the end and value capped at .length
+// substr(-target.length) count at end of str, valued capped at target.length
+
+  if (str.substr(-target.length) === target) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// should return true or false
+confirmEnding("Bastian", "n");
