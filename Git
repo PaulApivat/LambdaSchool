@@ -17,3 +17,25 @@
 4. $ git remote add origin [-- what you pasted from clipboard: remote repository URL] // # Sets the new remote
 5. $ git remote -v    // # Verifies the new remote URL
 6. $ git push -u origin master  // # Pushes the changes in your local repository up to the remote repository you specified as the origin
+
+######################## ######################## ######################## 
+######################## Creating a new Branch, Merging with Master
+// General Project (sprint challenge flow)
+
+1. Fork project to your Github acct
+2. Clone the forked project into your director (see above) 
+3. Create a Branch (i.e., 'develop') on your local build   
+        $ git checkout -b 'develop'               // this creates AND switches to the new branch 'develop
+
+###### During Project - commit often
+// $ git status     /check your status
+// $ git branch    /check which branch you're on
+4. $ git add .
+5. $ git commit -m "succinct description of completed task"
+
+######### Post-Project: Merge & Pull Request
+1. Push all commits up to the new Branch 'develop'   // $ git push
+2. Switch back to master branch                      // $ git checkout master 
+3. Merge 'develop' branch into master                // $ git merge develop
+4. Push all your updates up to master (your Github   // $ git push origin master
+5. Create pull request back to original fork         // in your Github repo that your forked, click 'New pull request'
