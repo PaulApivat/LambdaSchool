@@ -175,4 +175,33 @@ function reverseNumber(num) {
    return parseInt(reverse); 
 }
 
+######################## REVERSE CASING
+// Write a function that takes in a string, reverses the 'casing' of that string, and returns the "reversed-casing" string.
+
+function reverseCase(str) {
+  //turn string into Array
+      let array = str.split("");
+  //loop through Array
+      for (i = 0; i < array.length; i++) {
+  //check if string Uppercase, turn to lowercase
+      if (array[i] === array[i].toUpperCase()) {
+  // change to lowercase
+      array[i] = array[i].toLowerCase();
+    } else {
+  // change to uppercase
+      array[i] = array[i].toUpperCase();
+    }
+  }
+
+  //turn array back to string
+  let newStr = array.join("");
+  //return string
+  return newStr
+}
+
+reverseCase("JAVASCRIPT is fun55!");
+
+
+
+
 
