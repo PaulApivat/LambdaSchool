@@ -1,0 +1,56 @@
+######## .test() a literal string - if sub-string is in string
+let sample = "Tatum is the next Kobe"
+let target = /Kobe/
+let result = target.test(sample); 
+// true
+console.log(result);
+
+######## .test() a literal string with different possibilities
+let sample = "Tatum is the next MJ"
+let target = /Kobe|MJ|Michael/        //several options
+let result = target.test(sample); 
+// true
+console.log(result);
+
+######## ignore 'case' (upper or lower) while matching
+let sample = "kobeBEANbryant";
+let target = /BrYaNt/i;             // add i
+let result = target.test(sample);
+
+console.log(result);
+
+######## Extract matches with .match()
+let sample = "Extract the word either Lebron Kobe Durant or Curry";
+let target = /Durant/;                        
+let result = sample.match(target);            // *** notice 'target' gets passed as argument for .match()
+
+console.log(result);
+
+######## Find Multiple matches with 'g' flag
+let sample = "Kobe was named after kobe beef from Japan";
+let target = /kobe/gi;                            // 'g' flag to extra more than once, 'i' to ignore case
+let result = sample.match(target);                
+
+// should return [ 'Kobe', 'kobe' ]
+console.log(result);
+
+######## Match anything with Wildcard Period / string. /
+
+let kobeStr = "Friends come and go, but banners hang forever";
+let bronStr = "Strive for greatness";
+let forRegex = /.for/;
+kobeStr.match(forRegex); // Returns ['for']
+bronStr.match(forRegex); // Returns ['for']
+
+######## Match character with Multiple Possibliities  /[somecharacter]/i 
+let sample = "Friends come and go, but champions are forever.";
+let target = /[aieou]/gi;                         // brackets around all vowels  'g' flag for multiple matches 'i' flag ignore cases
+let result = sample.match(target); 
+
+console.log(result);
+
+######## Match all Letter in the Alphabet
+let quoteSample = "The quick brown fox jumps over the lazy dog.";
+let alphabetRegex = /[a-z]/gi;                              // a-to-z in brackets and global and ignore flag
+let result = quoteSample.match(alphabetRegex); 
+
