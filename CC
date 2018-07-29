@@ -202,6 +202,25 @@ function reverseCase(str) {
 reverseCase("JAVASCRIPT is fun55!");
 
 
+############ String to Camel Case
+//*** NOT A SOLUTION
+
+function toCamelCase(str) {
+  // for dash
+  let replaced = str.replace(/-([a-z])/gi, function(s, group1) {
+    return group1.toUpperCase();
+  });
+  return replaced;
+  
+ 
+  // THIS NEEDS WORK for underscore
+  let replaced1 = str.replace1(/_([a-z])/gi, function(s, group1) {
+    return group1.toUpperCase();
+  });
+  return replaced1;
+}
+
+toCamelCase("the-stealth-warrior");
 
 
 
