@@ -54,3 +54,14 @@ let quoteSample = "The quick brown fox jumps over the lazy dog.";
 let alphabetRegex = /[a-z]/gi;                              // a-to-z in brackets and global and ignore flag
 let result = quoteSample.match(alphabetRegex); 
 
+######## Combine Letters and Numbers in single set 
+let quoteSample = "Blueberry 3.141592653s are delicious.";
+let myRegex = /[2-6h-s]/ig;               // Combine numbers and character ranges ; 'g' flag for multiple matches 'i' flag ignore cases
+let result = quoteSample.match(myRegex);  
+
+######## NEGATED character sets - characters you do NOT want to match
+let quoteSample = "3 blind mice.";
+let myRegex = /[^1-9aeiou]/gi;                // ^ carat comes before everything to negate ; 'g' flag for multiple matches 'i' flag ignore cases
+let result = quoteSample.match(myRegex);      
+
+
