@@ -64,4 +64,10 @@ let quoteSample = "3 blind mice.";
 let myRegex = /[^1-9aeiou]/gi;                // ^ carat comes before everything to negate ; 'g' flag for multiple matches 'i' flag ignore cases
 let result = quoteSample.match(myRegex);      
 
+######## Match Characters that Occur One or More times
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/g;                            // s+ consecutive s; 'g' global flag for multiple times
+let result = difficultSpelling.match(myRegex);
+
+
 
