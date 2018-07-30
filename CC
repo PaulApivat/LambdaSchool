@@ -202,25 +202,30 @@ function reverseCase(str) {
 reverseCase("JAVASCRIPT is fun55!");
 
 
-############ String to Camel Case
-//*** NOT A SOLUTION
+#################################### String to Camel Case
+***NOTE: .replace() takes in two arguments, regex literal to be replaced (here, dash or underscored followed by any-letter
+****     and second argument is a call-back function
+****     call-back function takes two argument, 's' takes away what was replaced, 'group1' .toUpperCase() any letter
 
 function toCamelCase(str) {
-  // for dash
-  let replaced = str.replace(/-([a-z])/gi, function(s, group1) {
-    return group1.toUpperCase();
-  });
+  // assess if string includes dash or underscore
+  if (str.match(/-/)) {
+    // for dash replace dash followed by letter with call-back function to return that letter uppercase
+      let replaced = str.replace(/-([a-z])/gi, function(s, group1) {
+      return group1.toUpperCase();
+    });
   return replaced;
-  
- 
-  // THIS NEEDS WORK for underscore
-  let replaced1 = str.replace1(/_([a-z])/gi, function(s, group1) {
-    return group1.toUpperCase();
-  });
+  } else {
+    // for underscore replace underscore followed by letter with call-back function to return that letter uppercase
+      let replaced1 = str.replace(/_([a-z])/gi, function(s, group1) {
+      return group1.toUpperCase();
+    });
   return replaced1;
+  }
 }
 
 toCamelCase("the-stealth-warrior");
+
 
 
 
