@@ -227,5 +227,54 @@ function toCamelCase(str) {
 toCamelCase("the-stealth-warrior");
 
 
+################################### Model Solution - String to Camel Case
+// v1.0
+function toCamelCase(str) {
+  if (str === '') return str;                         
+  let snakeCase = str[0];                               // set snakeCase to first index in str??
+  strArr = str.split('');                               // turn string into array - strArr
+  for (let i = 1; i < strArr.length; i++) {             // loop through strArr
+    if (strArr[i] === '-') {                            // if strArr include dash
+      strArr[i + 1] = strArr[i + 1].toUpperCase();      // turn letter following dash .toUpperCase
+    }
+    else if (strArr[i] === '_') {                       // else if strArr includes underscore
+      strArr[i + 1] = strArr[i + 1].toUpperCase();      // turn letter after underscore .toUpperCase
+    }
+    else snakeCase += strArr[i];                        // else add strArr to snakeCase
+  }
+  return snakeCase;
+}
+
+// // v2.0 for loop with logical inclusive OR operator
+// function toCamelCase(str) {
+//   let arr = str.split('');                           // turn string into array - arr
+//   for (let i = 1; i < arr.length; i++) {             // loop through arr
+//     if(arr[i] === '_' || arr[i] === '-') {           // if index in arr equals underscore or dash
+//       arr[i] = '';                                   // set to blank
+//       arr[i + 1] = arr[i + 1].toUpperCase();         // have following letter be .toUpperCase()
+//     }
+//   }
+//   return arr.join('');                               // join arr back to string
+// }
+
+// // v3.0 Regular expressions
+// function toCamelCase(str){
+//   const arr = str.split(/[-_]/);
+//   for (let i = 1; i < arr.length; i++) {
+//     arr[i] = arr[i][0].toUpperCase() + arr[i].substr(1);
+//   }
+//   return arr.join('');
+// }
+
+// // v4.0 - Global Expressions
+// function toCamelCase(str) {
+//   return str.replace(/(_|-)\w/g, function(m) {return m[1].toUpperCase();});
+// }
+
+// // v4.1
+// function toCamelCase(str) { 
+//   return str.replace(/[_-][a-zA-Z]/g, letter => letter[1].toUpperCase());
+// }
+
 
 
