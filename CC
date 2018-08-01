@@ -201,6 +201,26 @@ function reverseCase(str) {
 
 reverseCase("JAVASCRIPT is fun55!");
 
+// *** Shorter solution using map() ***
+
+function reverseCase(str) {
+  // str.split -> changes the string into an array
+  // map over the array (loop over the array, for each 'letter', check to see if letter is equal to lower case version of itself) - up to question mark
+  //if it is return teh upper case version in the letter's place
+  //
+  // if not return the lower case version
+  // join the array
+  return str.split("").map(letter => letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase()).join("");
+}
+
+reverseCase("JAVASCRIPT is FuN55");
+
+// ['h', 'E', 'L', 'L', 'o']
+// ['H', 'e', 'l', 'l', 'O']
+
+// if you're looping AND changing use map()
+// if you're executing something use forEach()
+
 
 #################################### String to Camel Case
 ***NOTE: .replace() takes in two arguments, regex literal to be replaced (here, dash or underscored followed by any-letter
