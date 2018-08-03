@@ -271,9 +271,12 @@ function toCamelCase(str) {
 //change string to array
     let strArr = str.split("");
 
+// for each index of array, if dash or underscore, take next item and .toUpperCase() it, 
     strArr.forEach((char, ind)=> {
         if (char === "-" || char === "_") {
             strArr[ind + 1] = strArr[ind + 1].toUpperCase();
+            
+      // turn current item, dash or underscore, and make it disappear
             strArr[ind] = "";
         }
     });
