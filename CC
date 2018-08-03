@@ -281,7 +281,23 @@ function toCamelCase(str) {
     return strArr.join("")
 }
 
+///v 1.5
 
+function toCamelCase(str) {
+  let arr = [];
+  if (str.includes('-') || str.includes('_')) {
+    arr = str.split(/-|_/);                                //// .split(/-|_/) automatically gets rid of delimiters
+  }
+  
+  for (let i = 0; i < arr.length; i++) {
+    let firstChar = arr[i].charAt(0);
+    if (i !== 0) {
+      firstChar = firstChar.toUpperCase();
+    }
+    arr[i] = firstChar + arr[i].slice(1).toLowerCase();
+  }
+  return arr.join('');
+}
 
 
 // // v2.0 for loop with logical inclusive OR operator
