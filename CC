@@ -265,6 +265,25 @@ function toCamelCase(str) {
   return snakeCase;
 }
 
+///// Solution using .forEach()
+
+function toCamelCase(str) {
+//change string to array
+    let strArr = str.split("");
+
+    strArr.forEach((char, ind)=> {
+        if (char === "-" || char === "_") {
+            strArr[ind + 1] = strArr[ind + 1].toUpperCase();
+            strArr[ind] = "";
+        }
+    });
+
+    return strArr.join("")
+}
+
+
+
+
 // // v2.0 for loop with logical inclusive OR operator
 // function toCamelCase(str) {
 //   let arr = str.split('');                           // turn string into array - arr
