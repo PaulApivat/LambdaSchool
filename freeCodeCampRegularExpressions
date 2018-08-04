@@ -69,5 +69,121 @@ let difficultSpelling = "Mississippi";
 let myRegex = /s+/g;                            // s+ consecutive s; 'g' global flag for multiple times
 let result = difficultSpelling.match(myRegex);
 
+######## Match Characters that occur ZERO or more times
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+let chewieRegex = /Aa*/;                          // * match all examples of 'Aa' in quote
+let result = chewieQuote.match(chewieRegex);
+
+######## Find Characters with LAZY matching    
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<h[0-9].*?>/;                    // [0-9] any number; '.' wild card '*' ends with '?' lazy matching
+let result = text.match(myRegex);
+
+######### Find One or More 
+// find one or more 'C'
+let crowd = 'P1P2P3P4P5P6CCCP7P8P9';                
+
+let reCriminals = /C+/;                     // '+' find one or more C
+
+let matchedCriminals = crowd.match(reCriminals);
+console.log(matchedCriminals);
+
+########### Match BEGINNING STRING patterns
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/;                              // ^ carat OUTSIDE of '[ ]', character set, will locate string beginnings
+let result = calRegex.test(rickyAndCal);
+
+########### Match ENDING STRING patterns
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/;                             // $ is the reverse of ^ outside of character set
+let result = lastRegex.test(caboose);
+
+########## Javascript SHORTCUT match all letters and numbers
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g;                             // \w  === [A-Za-z0-9_]
+let result = quoteSample.match(alphabetRegexV2).length;
+
+console.log(result);        // find 31 alphanumeric characters
+
+########### SHORTCUT to find all NON-letters and numbers (opposite of above)
+let quoteSample = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /\W/g;                                 // uppercase \W is oppsite of \w
+let result = quoteSample.match(nonAlphabetRegex).length;
+
+console.log(result);        // find 6 alphanumeric characters
 
 
+########### SHORTCUT to find all DIGITS [0-9]
+let numString = "Your sandwich will be $5.00";
+let numRegex = /\d/g;                                 // \d === [0-9]
+let result = numString.match(numRegex).length;
+
+########### Shortcut to find all NON-NUMBERS [^0-9]
+let numString = "Your sandwich will be $5.00";
+let noNumRegex = /\D/g;                             // \D === [^0-9]
+let result = numString.match(noNumRegex).length;
+
+################################# RESTRICT POSSIBLE USERNAMES  ################################# 
+// 1) The only numbers in the username have to be at the end. There can be zero or more of them at the end.
+
+// 2) Username letters can be lowercase and uppercase.
+
+// 3) Usernames have to be at least two characters long. A two-letter username can only use alphabet letter characters.
+
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z]{2,}\d*$/i;                 // see below
+let result = userCheck.test(username);
+
+// ^[a-z] guarantees that your username starts with letter;
+// ^[a-z]{2,} guarantees that it starts with letters and is at least 2 characters long;
+// \d* says it can have 0 or more digits.
+// \d*$ guarantees that digits are only at the end.
+// i - ignore case.
+
+
+################# Match Whitespace with \s
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g;                          // finds white space with \s   similar to [\r\t\f\n\v]
+let result = sample.match(countWhiteSpace);
+
+\r return
+\t tab
+\f form feed
+\n new line
+\v vertical tab character
+
+################ Match NON-Whitespace with \S 
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g;                        // similar to [^ \r\t\f\n\v]
+let result = sample.match(countNonWhiteSpace);
+
+
+############### Specify Upper and Lower Number of Matches
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6} no/;                       // h{3,6} will find h - infinitely, need the "Oh{start, end} no" to be precise
+let result = ohRegex.test(ohStr);
+
+################ Specify Only the LOWER NUMBER of matches (i.e., at least 4 z's)
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/;                    // note the Haz{start, }ah
+let result = haRegex.test(haStr);
+
+############## Specify EXACT number of matches
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/;                         //  {4} exactly four matches
+let result = timRegex.test(timStr);
+
+############# PREVIOUS ELEMENT IS OPTIONAL use '?'
+let favWord = "favorite";
+let favRegex = /favou?rite/;                          // 'u' is optional, both British/American spelling returns true
+let result = favRegex.test(favWord);
+
+############## LOOKAHEADS - - check patterns in passwords (i.e., at least 5 characters and two consecutive digits)
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{5,})(?=\D*\d+)/;                 
+let result = pwRegex.test(sampleWord);
+
+\w      all letters and numbers
+{5,}    at least 5 characters
+\D*     all examples of non-digits
+\d+     at least two consecutive digits      
