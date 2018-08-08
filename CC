@@ -334,5 +334,120 @@ function toCamelCase(str) {
 //   return str.replace(/[_-][a-zA-Z]/g, letter => letter[1].toUpperCase());
 // }
 
+################################## Emulate Logic Gates ###################
+***** Chris solution ******
+
+function NOT (b) {
+  if (b === true) return false;
+  return true;
+}
+
+function AND (x, y) {         // nested if-statement is AND
+  if (x === true) {
+    if (y === true) {
+      return true;
+    }
+  }
+  // if not
+  return false;
+}
+
+function NAND(x, y) {          // NAND opposite of AND
+  // oppsite of AND
+    if (x === true) {
+      if (y === true) {
+      return false;
+    }
+  }
+  // if not
+  return true;
+}
+
+function OR(x, y) {                  
+  if (x === true) return true;
+  if (y === true) return true;
+  // if neither x or y, then return false         // NON-nested if-statement 
+  return false;
+}
+
+function XOR(x, y) {
+  if (x === true) {
+    if (y === true) {
+      return false;
+    }
+  }                               // find edge cases through two-consencutive nested-if-statements
+  if (x === false) {
+    if (y === false) {
+      return false;
+    }
+  }
+  // if both cases above don't work, then return true
+  return true;
+}
+
+******* Emulate Logic Gate - Model Solution **********
+
+// v1.0
+function NOT (b) {
+    if (b === true) return false;
+  return true;
+}
+console.log('NOT');
+console.log(NOT(true));  // ---> false
+console.log(NOT(false)); // ---> true
+
+function AND (x, y) {
+  if (x === true) {
+    if (y === true) return true;
+  }
+  return false;
+}
+console.log('AND');
+console.log(AND(true, true));   // ---> true
+console.log(AND(true, false));  // ---> false
+console.log(AND(false, true));  // ---> false
+console.log(AND(false, false)); // ---> false
+
+function NAND(x, y) {
+  if (x === true) {
+    if (y === true) return false;
+  }
+  return true;
+}
+console.log('NAND');
+console.log(NAND(true, true));   // ---> false
+console.log(NAND(true, false));  // ---> true
+console.log(NAND(false, true));  // ---> true
+console.log(NAND(false, false)); // ---> true
+
+function OR(x, y) {
+  if (x === true) return true;
+  if (y === true) return true;
+  return false;
+}
+console.log('OR');
+console.log(OR(true, true));   // ---> true
+console.log(OR(true, false));  // ---> true
+console.log(OR(false, true));  // ---> true
+console.log(OR(false, false)); // ---> false
+
+function XOR(x, y) {
+  if (x === true) {
+    if (y === true) {
+      return false;
+    }
+  }
+  if (x === false) {
+    if (y === false) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log('XOR');
+console.log(XOR(true, true));   // ---> false
+console.log(XOR(true, false));  // ---> true
+console.log(XOR(false, true));  // ---> true
+console.log(XOR(false, false)); // ---> false
 
 
