@@ -450,4 +450,17 @@ console.log(XOR(true, false));  // ---> true
 console.log(XOR(false, true));  // ---> true
 console.log(XOR(false, false)); // ---> false
 
+******* Sort letters (or numbers) in a string using .sort() **********
 
+// Write a function called sortString that takes a string of letters and 
+// returns a string with the letters sorted in alphabetical order.
+
+*** NOTE: see http://www.asciitable.com/ to see what Javascript is doing under the hood when sorting
+*** example: Uppercase letters get sorted BEFORE Lowercase letters
+
+function sortString(str) {
+  let newStr = str.split("").sort().join("");
+  return newStr;
+}
+
+sortString('zycxbwa');
