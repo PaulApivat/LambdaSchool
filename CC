@@ -469,10 +469,34 @@ sortString('zycxbwa');
 
 ############ JS-III - Challenge
 
+/// Own solution
+
 function sumPetYears(arr, kind, multiply) {
   let petSum = arr.filter(element => element.species === `${kind}`).map(element => element.age*multiply).reduce((acc, element) => acc + element,0);
   return `The combined ${kind}s' ages: ${petSum}`;
 }
 
 console.log(sumPetYears(pets, 'parakeet', 5));
+
+
+/// Teacher Solution (ES5)
+// ES5
+function sumPetYears(arr, kind, multiply) {
+  const filtered = arr.filter(function(value, index, array) {        //*Note: write all three parameters
+      return array[index].species === kind;           // same as next line!
+                                                      // return value.species === kind;
+    });
+  // console.log(filtered);
+  const mapped = filtered.map(function(val) {
+      return val.age * multiply;
+    });
+  // console.log(mapped);
+  const reduced = mapped.reduce(function(accumulator, currentValue) {
+      return accumulator + currentValue;
+    });
+  // console.log(reduced);
+  return `The combined ${kind}s' ages: ${reduced}`;
+  // return "The combined " + kind + "s' ages: " + reduced;
+  // return 'The combined ' + kind + 's\' ages: ' + reduced;
+}
 
