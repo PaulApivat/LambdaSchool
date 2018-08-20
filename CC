@@ -464,3 +464,15 @@ function sortString(str) {
 }
 
 sortString('zycxbwa');
+
+############ JS-II - Challenge
+
+############ JS-III - Challenge
+
+function sumPetYears(arr, kind, multiply) {
+  let petSum = arr.filter(element => element.species === `${kind}`).map(element => element.age*multiply).reduce((acc, element) => acc + element,0);
+  return `The combined ${kind}s' ages: ${petSum}`;
+}
+
+console.log(sumPetYears(pets, 'parakeet', 5));
+
