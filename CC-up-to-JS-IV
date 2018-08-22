@@ -479,8 +479,23 @@ function sumPetYears(arr, kind, multiply) {
 console.log(sumPetYears(pets, 'parakeet', 5));
 
 
+
+/// ONLY using REDUCE
+
+function sumPetYears(arr, kind, multiply) {
+  const combined = arr.reduce((age, pet) => {
+    if (pet.species === kind) age += pet.age * multiply
+    return age
+  }, 0);
+  
+  return `The combined ${kind}s' ages: ${combined}`
+}
+
+
+
 /// Teacher Solution (ES5)
 // ES5
+
 function sumPetYears(arr, kind, multiply) {
   const filtered = arr.filter(function(value, index, array) {        //*Note: write all three parameters
       return array[index].species === kind;           // same as next line!
