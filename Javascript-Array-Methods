@@ -96,3 +96,50 @@ myReduce(numArray);
 
 // TAKE-AWAY: Reduce doesn't return a new array, it returns the sum of all the values inside the array (optional, can return old array)
 
+
+##################  .sort() written as for-loop(s)
+// Bubble Sort
+
+// sample array
+let months = ['March', 'Jan', 'Feb', 'Dec','APRIL', 1, 30, 4, 21, 'oct', 'topps', 23, 'fleer',45, 'panini'];
+
+// function to separate out numbers from strings
+function takeOutNumber(arr){
+  let newArr = arr.filter(Number);
+  return newArr;
+}
+
+// Bubble Sort
+function myOwnBubbleSort(arr) {
+
+  let numSwapped;
+
+//outer for-loop, iterate through array
+  for (let i = 0; i < arr.length - 1; i++) {
+    numSwapped = false;  //default setting
+    
+    
+    for (let j = 0; j < arr.length - 1; j++) {
+      if(arr[j] > arr[j+1]) {
+        numSwapped = true;
+        
+
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        
+      }
+    } // inner loop
+
+    if(!numSwapped) {
+      return arr;
+    }
+  }   //outer loop
+
+  return arr;
+}
+
+
+takeOutNumber(months);
+
+myOwnBubbleSort(months)
