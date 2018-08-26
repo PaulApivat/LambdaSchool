@@ -1,11 +1,12 @@
-const myArr = ['Kobe', 'Jordan', 'Lebron', 'Magic'];
 
 ####### .forEach() written as for-loop
 //when a .forEach() is called on an array, a callback function is invoked with the Item, 
 //where the Index is found, and a copy of the Array 
 
-//deconstructing a .forEach() function
+// array being queried
+const myArr = ['Kobe', 'Jordan', 'Lebron', 'Magic'];
 
+//deconstructing a .forEach() function
 function myForEach(myArr, callback) {
   for (let i = 0; i < myArr.length; i++) {
     callback(myArr[i], i, myArr)
@@ -19,19 +20,30 @@ console.log(myForEach(myArr, console.log));   //.myForEach()
 #######  .map() written as for-loop
 //deconstructing a .map() function
 
-function myMap(myArr, callback) {
-                // .map() returns new array, .forEach() does not
-  const returnNewArr = [];
-  for (let i = 0; i < myArr.length; i++) {
-    const returnFromCallback = callback(myArr[i], i, myArr);
-    returnNewArr.push(returnFromCallback)
-  }
-  return returnNewArr;
+// array being queried
+const graduates = [{"id":1,"first_name":"Cynde","university":"Missouri Southern State College","email":"ctorry0@macromedia.com"},
+{"id":2,"first_name":"Saundra","university":"The School of the Art Institute of Chicago","email":"swhal1@state.gov"},
+{"id":3,"first_name":"Lambert","university":"Marian College","email":"lparham2@techcrunch.com"},
+{"id":4,"first_name":"Modestine","university":"International Medical & Technological University","email":"mdolder3@symantec.com"}]
+
+
+function cb(element, index, array) {
+  return element.university;            // callback function that maps over objects and grabs the university property
 }
 
-//These two are the same
-console.log(myArr.map(console.log));
-console.log(myMap(myArr, console.log));
+function grabUniversity(arr, callback) {
+let universities = [];
+for (i = 0; i < arr.length; i++) {
+  const returnFromCallback = callback(arr[i], i, arr);
+  universities.push(returnFromCallback);
+}
+return universities;                              //returns new array
+}
+
+console.log(grabUniversity(graduates, cb));           // all universities
+console.log(grabUniversity(graduates, cb).sort());    // all universities sorted
+
+
 
 ******* .map() returns a new array, while .forEach() does not
 
@@ -40,31 +52,26 @@ console.log(myMap(myArr, console.log));
 
 //deconstructing a .filter() function in ES6 way; return all items where index is > 1
 
-const filterCallBack = (elem, index, array) => {
-  if (index > 1) {
-    return true;
+function cb(element, index, array) {
+  // return 'Hello ' + WHAT + ' I am located at index: ' + WHERE;
+  if(element.university.includes('Uni')){
+    return element.university;
   } else {
-    return false;
+    return null;
   }
 }
 
-const myFilteredArray = myArr.filter(filterCallBack);
-console.log(myArr);
-console.log(myArr.filter(filterCallBack));
-
-// deconstructing traditional .filter() function without using .filter, written in ES5 function way
-
-function myFilter (myArr, callback) {
-  const returnEmptyArr = [];
-  for (let i = 0; i < myArr.length; i++) {
-    if (i > 1) {
-        returnEmptyArr.push(myArr[i]);
-      }
-    }
-    return returnEmptyArr;
+function grabUniversity(arr, callback) {
+let universities = [];
+for (i = 0; i < arr.length; i++) {
+  const returnFromCallback = callback(arr[i], i, arr);
+  universities.push(returnFromCallback);
+}
+return universities;
 }
 
-myFilter(myArr);
+console.log(grabUniversity(graduates, cb))
+
 
 ******TAKE AWAY, BOTH .map() and .filter() generate and return new arrays, 
 *****while .forEach() just creates a for-loop on the same array
