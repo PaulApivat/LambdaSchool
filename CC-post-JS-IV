@@ -1,0 +1,77 @@
+//============================================================ STACK =============================================================//
+//Now that you have been introduced to JavaScript classes, let's make a class called "Stack" and give it this LIFO functionality. 
+//Our Stack class's storage will be an Array. You'll want to make two methods in you Stack class: add and remove. 
+//The add method will push an item into storage. The remove method will remove the last item in storage.
+
+class Stack {
+  constructor(stackAttribute) {
+    this.storage = [];
+  }
+  
+  add(item){
+    this.storage.push(item);
+    // console.log(this.storage);
+  }
+  
+  remove(item){
+    this.storage.pop(item);
+    // console.log(this.storage);
+  }
+  
+  numOfItems(){
+    if (this.storage.length === 0){
+      return 'There are no items in your Stack.'
+    } else {
+      return this.storage.length;
+    }
+  }
+}
+
+
+const myStack = new Stack();
+console.log(myStack.numOfItems()); // <--- "There are no items in your Stack."
+myStack.add('first');
+myStack.add('second');
+myStack.add('third');
+console.log(myStack.numOfItems()); // <--- 3
+console.log(myStack.storage);      // <--- [ 'first', 'second', 'third' ]
+myStack.remove();
+console.log(myStack.storage);      // <--- [ 'first', 'second' ]
+myStack.remove();
+console.log(myStack.storage);      // <--- [ 'first' ]
+myStack.remove();
+console.log(myStack.storage);      // <--- []
+console.log(myStack.numOfItems()); // <--- "There are no items in your Stack."
+
+
+
+//============================================================ VOWEL COUNT =============================================================//
+
+## my solution ##
+// Write a function which counts the number of vowels in a given string. Return the count number.
+
+function vowelCount(str) {
+  let vowelArray = str.match(/[aeiou]/ig);          // set regex to match vowels
+  return vowelArray ? vowelArray.length : 0;        // if there's a match, return vowelArray.length, else 0;
+}
+
+## PM Solution ##
+
+function vowelCount(str) {
+  const vowels = 'aeiouAEIOU'.split('');              //  split individual characters into own array, set to vowels
+  let count = 0;                                      //  set count = 0
+  str.split('').forEach(letter => {                   //  split str, forEach letter..
+    vowels.includes(letter) ? count++ : null;         //  if vowels .includes() letter, increment count, else null;
+  });   
+  return count;
+}
+
+console.log(vowelCount('-bcd-fgh-jklmn-pqrst-vwxyz')); // <--- 0
+console.log(vowelCount('Hello world!')); // <--- 3
+console.log(vowelCount('Pinto beans')); // <--- 4
+console.log(vowelCount('The quick brown fox jumped over the lazy dog.')); // <--- 12
+console.log(vowelCount('Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.')); // <--- 58
+console.log(vowelCount('All I have ever wanted is to be an Uber driver!')); // <--- 16
+
+
+
