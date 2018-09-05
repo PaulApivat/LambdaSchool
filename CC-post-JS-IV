@@ -101,6 +101,17 @@ function toBinaryString(number) {
   return emptyArray.reverse().join("");
 }
 
+/////////// PM Solution /////////////
+
+function toBinaryString(number) {
+    let remainders = [];
+    do {
+      remainders.unshift(number % 2);       // main step
+      number = Math.floor(number / 2);      // main step
+    } while (number > 0);
+    return remainders.join('');
+}
+
 
 console.log(toBinaryString(0));  // <--- 0
 console.log(toBinaryString(1));  // <--- 1
@@ -120,7 +131,43 @@ console.log(toBinaryString(14)); // <--- 1110
 console.log(toBinaryString(15)); // <--- 1111
 console.log(toBinaryString(16)); // <--- 10000
 
+######### to Binary (Additional Solutions) ###########
+/////// Alternative One /////////
 
+function toBinaryString(number) {
+  let tempArr = [];
+  if (number < 0) {
+    console.log("Please enter a positive number.");
+  }
+  
+  else if(number === 0) {
+    return "0";
+  }
+  
+  else {
+    while(number > 0) {
+      tempArr.unshift(number % 2);
+      number >>= 1;
+    }
+    return tempArr.join('');
+  }
+}
+
+/////// Alternative Two /////////
+
+function toBinaryString(number) {
+  let num = number;
+  let result = []; 
+    if(num === 0){
+      result.push(num); 
+  } else {
+      while(num >= 1 ){
+        result.unshift(Math.floor(num%2));
+        num = num/2;
+      }
+    }
+    return result.join("");
+}
 
 
 
