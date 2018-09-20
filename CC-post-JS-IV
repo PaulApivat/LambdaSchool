@@ -169,6 +169,72 @@ function toBinaryString(number) {
     return result.join("");
 }
 
+################## Deep Equality ####################
+// MY Solution:
 
+function deepEquals(obj1, obj2) {
+  // takes objects
+  let arr1 = Object.values(obj1['address']);
+  let arr2 = Object.values(obj2['address']);
+  
+  if ((obj1.name === obj2.name) && (arr1[0] === arr2[0]) && (arr1[1] === arr2[1])) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// PM Solution (Recursion for objects within objects):
+
+function deepEquals(obj1, obj2) {
+  if (Object.keys(obj1).length === Object.keys(obj2).length) {
+    for (let key in obj1) {
+      if (typeof obj1[key] === 'object') {
+        if (!deepEquals(obj1[key], obj2[key])) return false;
+      } else if (obj1[key] !== obj2[key]) {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Stringify Solution (objects have to be in order):
+
+function deepEquals(obj1, obj2) {
+  return JSON.stringify(obj1) === JSON.stringify(obj2);
+}
+
+
+/// Compare These Objects
+
+const johnA = {
+  name: 'John',
+  address: {
+    line1: '321 Anytown',
+    line2: 'Stoke-on-Trent'
+  }
+};
+
+const johnB = {
+  name: 'John',
+  address: {
+    line1: '321 Anytown',
+    line2: 'Stoke-on-Trent'
+  }
+};
+
+const johnC = {
+  name: 'John Charles',
+  address: {
+    line1: '321 Anytown',
+    line2: 'Stoke-on-Trent'
+  }
+};
+
+deepEquals(johnA, johnB); // true
+deepEquals(johnA, johnC); // false
 
 
