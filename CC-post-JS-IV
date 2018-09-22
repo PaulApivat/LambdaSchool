@@ -238,3 +238,36 @@ deepEquals(johnA, johnB); // true
 deepEquals(johnA, johnC); // false
 
 
+################## ROMANUMERALIZE ####################
+// Define a function that takes in a positive integer and returns the Roman Numeral representation of that number.  
+
+function romanNumeralize(n) {
+    let number = n;
+    //create a key to loop through
+    const rome = {
+      M: 1000,
+      CM: 900,
+      D: 500,
+      CD: 400,
+      C: 100,
+      XC: 90,
+      L: 50,
+      XL: 40,
+      X: 10,
+      IX: 9,
+      V: 5,
+      IV: 4,
+      I: 1
+    };
+    let returnString = '';
+    //loop through object
+    for (let key in rome) {
+      while(number >= rome[key]) {
+        returnString += key;
+        number -= rome[key];
+      }
+    }
+    return returnString;
+}
+
+romanNumeralize(1981);
