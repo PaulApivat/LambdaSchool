@@ -369,4 +369,76 @@ class Queue {
   }
 }
 
+//============================================================ MONEY FORMAT =================================================
+// write a function called moneyFormat that formats the float into a string representing the numbers dollar and cent value.
+
+// MY SOLUTION
+
+function moneyFormat(float) {
+  let newArr = float.toFixed(2).split('')
+
+  let popTemp = newArr.pop()
+  let popTemp2 = newArr.pop()
+  let popTemp3 = newArr.pop()
+  
+  let revArr = newArr.reverse()
+  
+  //split('') turns a string into an array. 
+  //Now we want to turn the array back to one single string. 
+  //Reduce is perfect in this scenario. 
+  //Reduce method paramaters are 1st accumulator, 2nd iterated element, 3rd index. 
+  //Since the array index is 0 based, to insert after 3rd, we are looking at index i%3 === 2.
+
+  // if every index third index, (i.e.,  i%3 === 2) add ',' else add nothing {while doing nothing for accumulator and iterated element}
+  let revArr2 = revArr.reduce((a,e,i) => a + e + (i%3 === 2 ? ',' : ''),'');
+  
+  let revArr3 = revArr2.split('').reverse()
+
+  revArr3.push(popTemp3)
+  revArr3.push(popTemp2)
+  revArr3.push(popTemp)
+  
+  let revArr4 = '$' + revArr3.join('');
+  
+  console.log(revArr4.replace('$,', '$'))
+  
+  return revArr4.replace('$,', '$')
+}
+
+moneyFormat(123456789098.77)
+
+///////// PM (TEACHER) SOLUTION
+
+function moneyFormat(float) {
+  if (float < 1000) return '$' + Math.round(float).toFixed(2);
+  let end = Math.round((float % 1).toFixed(2) / 0.01) || '00';
+  if (0 < end && end < 10) end = '0' + end;
+  let left = Math.floor(float).toString();
+  let str = `${left.slice(-3)}.${end}`;
+  left = left.slice(0, -3);
+  while(left.length > 3) {
+    const nextThree = left.slice(-3);
+    str = `${nextThree},${str}`;
+    left = left.slice(0, -3);
+  }
+  str = `$${left},${str}`;
+  return str;
+}
+
+moneyFormat(2310000.159897)
+
+//////// MODEL SOLUTION (REGEX) - MOST SUCCINCT
+
+// v2.0 .toFixed(), .toString(), .replace() & the power of Regular Expressions
+function moneyFormat(float) {
+  return '$' + float
+    .toFixed(2)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+moneyFormat(2310000.159897)
+
+
+
 
