@@ -439,6 +439,69 @@ function moneyFormat(float) {
 
 moneyFormat(2310000.159897)
 
+//============================================================ CONSECUTIVE STRINGS =============================================================//
+You are given an array of strings called arr and an integer k. Your task is to return the longest string consisting of k consecutive strings from the array.
 
+i.e. Which "k" consecutive strings in the array are the longest?
+
+For example, if "k" is 2, and the array of strings is:
+["zone", "abigail", "theta", "form", "libe", "zas"]
+...then the longest two strings are "abigailtheta"
+
+####################  MY SOLUTION  (not passing replit)      ###################
+
+function longestConsecutive(arr, k) {
+  let emptyArr = [];
+  
+  let n = arr.length;
+  
+  if (n === 0 || k > n || k <=0) {
+    return "";
+  } else {
+    
+        // sort array of string by length, descending order
+        let longestString = arr.sort(function(a,b) {
+        return b.length - a.length;
+        });
+        
+        // to remove longest strings from the start of the array, use splice()
+        // splice(0,k) -> cut k-elements, from index 0; set to empty array
+        emptyArr = longestString.splice(0, k)
+        
+        // return empty array, join strings
+        return emptyArr.join('')
+  }
+}
+
+longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas"], 2) // <--- "abigailtheta" 
+
+
+longestConsecutive(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
+
+
+###############     PM Solution (makes more sense)   ###################
+
+function longestConsecutive(arr, k) {
+  // base case
+  let n = arr.length;
+  if (n === 0 || k > n || k <= 0) return '';
+  
+  // set longestString so far...
+  let longestString = '';
+  for (let i = 0; i < arr.length; i++) {
+    // temporary, slice does not mutate
+    const temp = arr.slice(i, i + k).join('');
+    // if temp is greater than longest so far...set it to temp
+    if (temp.length > longestString.length) {
+      longestString = temp;
+    }
+  }
+  return longestString;
+}
+
+longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas"], 2) // <--- "abigailtheta" 
+
+
+longestConsecutive(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
 
 
