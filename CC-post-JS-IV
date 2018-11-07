@@ -505,3 +505,52 @@ longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas"], 2) // <-
 longestConsecutive(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
 
 
+//============================================================ CHAAINED FUNCTIONS =============================================================//
+//Your function takes a single parameter: an array ("chain") of functions.  Return the results iterating through the array and invoking them one at a time.
+//chainedFunctions(Array)(value);
+
+// GIVEN PROBLEM
+
+function chainedFunctions(arr) {
+  function chain(x) {
+    for (let i = 0; i < arr.length; i++) {
+      let f = arr[i];
+      x = f(x);
+    }
+  }
+}
+
+// SOLUTION ONE
+
+const chainedFunctions = (arr) => {
+  return (x) => {
+    
+    for (let i = 0; i < arr.length; i++) {
+      x = arr[i](x);
+    }
+    return x
+  }
+}
+
+// SOLUTION TWO
+
+const chainedFunctions = (arr) => {
+  return (x) => {
+    arr.forEach((func) => {
+      x = func(x)
+    })
+    return x;  //re-assign, return to the next function after re-assign to func(x)
+  }
+}
+
+// NOTE: Chained Functions are similar to Higher-Order Functions in React ; or { connect } method in Redux
+
+// return chain of functions
+// order of functions are set in an array
+// let result;
+// result = b(result)
+// result = c(result)
+// result ...
+
+// onClick={() => whatever()}  but if already have return (x) => then no need
+// [this.handleAddTodo, this.markComplete](todo)
