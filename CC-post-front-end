@@ -1,1 +1,27 @@
+//=========== MERGED OBJECT ==========//
 
+//Write a function that given an array of objects will return a single 'merged' object, 
+//where duplicate keys have the last value given.
+
+function mergeObjects(arr) {
+  //our first object in arr 
+  const newObj = arr[0];
+  //loop through obj to see if key-value is already in the existing obj 
+  for (let i = 1; i < arr.length; i++){
+    //loop through each key-value pair, to check each key
+    for (let key in arr[i]){
+      //is this value exists OR if it does exists, not the same as current arr[i][key]
+      if (!newObj[key] || newObj[key] !== arr[i][key]){
+        //create key and set the value in this array
+        newObj[key] = arr[i][key];
+      }
+    }
+  }
+  return newObj;
+}
+
+// Object.assign method one-liners //
+
+function mergeObjects(arr) {
+     return Object.assign({}, ...arr)
+}
